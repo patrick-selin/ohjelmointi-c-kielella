@@ -19,5 +19,6 @@ int main(void) {
     scanf("%f", &paino);
 
     printf("Nimesi on %s %s, ikäsi on %d vuotta ja painat %.1f kg.", etunimi, sukunimi, ika, paino);
- 
+
+    return(0);
 }

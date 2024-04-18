@@ -11,5 +11,6 @@ int main(void) {
     printf("Anna korkeintaan 20 merkkiä pitkä merkkijono: ");
     scanf("%20s", merkki2);
     printf("Annoit merkkijonon '%s'.", merkki2);
- 
+    
+    return(0);
 }
