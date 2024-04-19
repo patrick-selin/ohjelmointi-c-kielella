@@ -1,2 +1,1 @@
-
-    scanf("%f", &fLiukuluku);
+rkkijono o
