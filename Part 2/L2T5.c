@@ -6,6 +6,8 @@ int main() {
     int pituus = 0;
     char valinta;
 
+    printf("\n");
+
     do {
         printf("Valikko\n");
         printf("1) Lisää uusi merkki\n");
@@ -21,7 +23,7 @@ int main() {
                 if (pituus < MAX_PITUUS) {
                     printf("Anna jokin merkki: ");
                     scanf(" %c", &merkkijono[pituus]);
-                    
+
                     pituus++;
                 } else {
                     printf("Merkkijonoon ei mahdu enempää merkkejä.\n");
@@ -51,6 +53,7 @@ int main() {
                     for (int i = 0; i < pituus; i++) {
                         printf("%c", merkkijono[i]);
                     }
+                    printf("\n");
                 }
                 printf("\n");
 
@@ -60,6 +63,7 @@ int main() {
                 break;
             default:
                 printf("Tuntematon valinta.\n");
+                printf("\n");
                 break;
         }
     } while (valinta != '0');
