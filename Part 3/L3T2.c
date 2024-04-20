@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_NIMI_PITUUS 50
+#define MAX_NIMEN_PITUUS 50
 
 void kirjoitaTiedostoon(const char *tiedostonimi) {
-    char nimi[MAX_NIMI_PITUUS];
+    char nimi[MAX_NIMEN_PITUUS];
     FILE *tiedosto;
 
     tiedosto = fopen(tiedostonimi, "a");
@@ -15,7 +15,7 @@ void kirjoitaTiedostoon(const char *tiedostonimi) {
     }
 
     printf("Anna lisättävä nimi: ");
-    if (fgets(nimi, MAX_NIMI_PITUUS, stdin) == NULL) {
+    if (fgets(nimi, MAX_NIMEN_PITUUS, stdin) == NULL) {
         printf("Virhe nimen lukemisessa\n");
         exit(EXIT_FAILURE);
     }
@@ -27,17 +27,17 @@ void kirjoitaTiedostoon(const char *tiedostonimi) {
 }
 
 void lueTiedostosta(const char *tiedostonimi) {
-    char nimi[MAX_NIMI_PITUUS];
+    char nimi[MAX_NIMEN_PITUUS];
     FILE *tiedosto;
 
     tiedosto = fopen(tiedostonimi, "r");
     if (tiedosto == NULL) {
-        perror("Tiedoston avaaminen epäonnistui, lopetetaan:");
-        exit(EXIT_FAILURE);
+        perror("Tiedoston avaaminen epäonnistui, lopetetaan");
+        exit(0);
     }
 
     printf("Tiedostossa olevat nimet:\n");
-    while (fgets(nimi, MAX_NIMI_PITUUS, tiedosto) != NULL) {
+    while (fgets(nimi, MAX_NIMEN_PITUUS, tiedosto) != NULL) {
         printf("%s", nimi);
     }
 
@@ -73,6 +73,7 @@ void pyoritaValikkoa(const char *tiedostonimi) {
 int main() {
     char tiedostonimi[100];
 
+    printf("Tämä ohjelma lisää nimiä tiedostoon ja lukee ne.\n");
     printf("Anna käsiteltävän tiedoston nimi: ");
     scanf("%99s", tiedostonimi);
 
