@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int laskePotenssi(int iLuku, int iPotenssi) {
-    int iTulos = 0;
+    int iTulos = 1;
 
     for (int i = 0; i < iPotenssi; i++) {
         iTulos *= iLuku;
