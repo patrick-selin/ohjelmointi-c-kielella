@@ -8,7 +8,7 @@ int kirjoitaLuvutTiedostoon(const char *aTiedostoNimi, int iLahtoArvo) {
     FILE *tiedosto = fopen(aTiedostoNimi, "wb");
     if (tiedosto == NULL) {
         perror("Tiedoston avaaminen epäonnistui, lopetetaan");
-        exit(EXIT_FAILURE);
+        exit(0);
     }
 
     srand(iLahtoArvo);
@@ -28,7 +28,7 @@ int lueLuvutTiedostosta(const char *aTiedostoNimi) {
     if (tiedosto == NULL) {
         perror("Tiedoston avaaminen epäonnistui, lopetetaan");
         // exit(0);
-        exit(EXIT_FAILURE);
+        exit(0);
     }
 
     printf("Tiedostossa on seuraavat luvut:\n");
