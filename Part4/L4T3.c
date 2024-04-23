@@ -11,7 +11,7 @@ int main(int iArch, char *argv[]) {
     char cOperand = argv[2][0];
     float fNumero2 = atof(argv[3]);
 
-    printf("%.2f %c %.2f = ", fNumero1, cOperand, fNumero2);
+    printf("%.1f %c %.1f = ", fNumero1, cOperand, fNumero2);
     switch (cOperand) {
         case '+':
             printf("%.2f\n", fNumero1 + fNumero2);
