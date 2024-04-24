@@ -1,3 +1,5 @@
+// L3T3: Funktiot ja tietotyypit
+
 #include <stdio.h>
 #include <string.h>
 

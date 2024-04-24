@@ -1,3 +1,5 @@
+// L3T4: Merkkijonon kopiointi itse tehdyllä funktiolla
+
 #include <stdio.h>
 #define MAX_PITUUS 30
 

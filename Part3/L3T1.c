@@ -1,3 +1,5 @@
+// L3T1: Funktio parametreilla ja paluuarvolla, potenssiin korotus
+
 #include <stdio.h>
 
 int laskePotenssi(int iLuku, int iPotenssi) {

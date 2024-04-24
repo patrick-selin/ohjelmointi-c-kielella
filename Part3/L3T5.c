@@ -1,3 +1,5 @@
+// L3T5: Satunnaislukujen kirjoittaminen binaaritiedostoon
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

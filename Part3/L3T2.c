@@ -1,3 +1,5 @@
+// L3T2: Valikkopohjainen ohjelma tiedostonkäsittelyyn aliohjelmilla
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
