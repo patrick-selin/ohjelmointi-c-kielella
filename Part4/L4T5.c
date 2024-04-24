@@ -1,3 +1,5 @@
+// L4T5: Rekursio ja Fibonaccin luku
+
 #include <stdio.h>
 
 unsigned long long laskeFibonacciRekursiivisesti(int iNumero) {

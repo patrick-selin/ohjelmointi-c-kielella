@@ -1,3 +1,5 @@
+// L4T4: Valikkopohjainen ohjelma käyttäjätunnusten ylläpitoon
+
 #include <stdio.h>
 #include <string.h>
 

@@ -1,3 +1,5 @@
+// L4T3: Komentorivilaskin virheenkäsittelyllä
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,7 +14,7 @@ int main(int iArch, char *argv[]) {
     float fNumero2 = atof(argv[3]);
 
     printf("%.1f %c %.1f = ", fNumero1, cOperand, fNumero2);
-    
+
     switch (cOperand) {
         case '+':
             printf("%.2f\n", fNumero1 + fNumero2);

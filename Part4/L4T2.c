@@ -1,3 +1,5 @@
+// L4T2: Matriisien yhteenlasku
+
 #include <stdio.h>
 
 #define RIVI 2
