@@ -1,3 +1,5 @@
+// L5T1: Komentorivi- ja muuttujaparametrit
+
 #include <stdio.h>
 #include <stdlib.h>
 

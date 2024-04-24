@@ -1,3 +1,5 @@
+// L5T2: Kokonaislukutaulukon dynaaminen hallinta
+
 #include <stdio.h>
 #include <stdlib.h>
 
