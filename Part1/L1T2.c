@@ -1,3 +1,5 @@
+// L1T2: Lukujen kysyminen ja tulostaminen
+
 #include <stdio.h>
 
 int main(void) {

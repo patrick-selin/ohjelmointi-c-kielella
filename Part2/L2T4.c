@@ -1,3 +1,5 @@
+// L2T4: Valikkopohjainen ohjelma switch, vakiot
+
 #include <stdio.h>
 #include <math.h>
 

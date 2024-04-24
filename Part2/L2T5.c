@@ -1,3 +1,5 @@
+// L2T5: Valikkopohjainen ohjelma, merkkitaulukon käsittely, vakio, virheenkäsittely
+
 #include <stdio.h>
 #define MAX_PITUUS 200
 

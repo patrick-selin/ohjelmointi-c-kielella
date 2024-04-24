@@ -1,3 +1,5 @@
+// L1T4: Merkin ja merkkijonon lukeminen ja tulostaminen
+
 #include <stdio.h>
 
 int main(void) {

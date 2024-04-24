@@ -1,3 +1,5 @@
+// L1T5: Muuttujien käyttö tiedon kysymisessä ja tulostamisessa
+
 #include <stdio.h>
 
 int main(void) {

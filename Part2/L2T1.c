@@ -1,3 +1,5 @@
+// L2T1: Valintarakenne, valikkopohjainen ohjelma
+
 #include <stdio.h>
 
 int main(void) {

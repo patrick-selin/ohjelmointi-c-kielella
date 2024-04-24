@@ -1,3 +1,5 @@
+// L2T2: Toistorakenne for, virheenkäsittely
+
 #include <stdio.h>
 
 int main() {

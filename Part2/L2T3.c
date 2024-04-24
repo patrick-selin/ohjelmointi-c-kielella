@@ -1,3 +1,5 @@
+// L2T3: Toistorakenne while, virheenkäsittely
+
 #include <stdio.h>
 
 int main() {
