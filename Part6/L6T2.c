@@ -1,3 +1,5 @@
+// L6T2: Linkitetty lista aliohjelmilla
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -60,7 +62,6 @@ void vapautaMuisti(struct AutoNode *pAlku) {
 }
 
 // ******* MAIN
-
 int main(int argc, char *argv[]) {
     struct AutoNode *pAlku = NULL;
     char pMerkki[50];
@@ -84,8 +85,6 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
-
-    // lue ja lisää
     while (fscanf(pTiedosto, "%s %d", pMerkki, &iValmistusVuosi) == 2) {
         pAlku = lisaaAuto(pAlku, pMerkki, iValmistusVuosi);
         iOnLuettu = 1;
