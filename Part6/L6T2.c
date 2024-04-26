@@ -8,13 +8,14 @@ struct AutonTiedot {
     struct AutonTiedot *pSeuraava;
 };
 
-// Aliohjelma tietueen luomiseen ja listaan lisäämiseen
 struct AutonTiedot *lisaaAuto(struct AutonTiedot *pAlku, char *pMerkki, int iValmistusVuosi) {
-    struct AutonTiedot *pUusiAuto = (struct AutonTiedot *)malloc(sizeof(struct AutonTiedot));
-    if (pUusiAuto == NULL) {
-        printf("Muistinvaraus epäonnistui.\n");
-        return pAlku;
+    struct AutonTiedot *pUusiAuto = NULL;
+    
+    if ((pUusiAuto = (struct AutonTiedot *)malloc(sizeof(struct AutonTiedot))) == NULL) {
+        perror("Muistin varaus epäonnistui");
+        exit(0);
     }
+
     strcpy(pUusiAuto->pMerkki, pMerkki);
     pUusiAuto->iVuosiLuku = iValmistusVuosi;
     pUusiAuto->pSeuraava = NULL;
@@ -47,7 +48,6 @@ void tulostaAutot(struct AutonTiedot *pAlku) {
     }
 }
 
-// Aliohjelma vapauttaa varatun muistin
 void vapautaMuisti(struct AutonTiedot *pAlku) {
     struct AutonTiedot *pTemppi = pAlku;
 
@@ -58,11 +58,13 @@ void vapautaMuisti(struct AutonTiedot *pAlku) {
     }
 }
 
+// ******* MAIN
+
 int main(int argc, char *argv[]) {
     struct AutonTiedot *pAlku = NULL;
     char pMerkki[50];
     int iValmistusVuosi;
-    int luettu = 0;
+    int iOnLuettu = 0;
 
     if (argc < 2) {
         printf("Et antanut tiedoston nimeä.\n");
@@ -70,25 +72,24 @@ int main(int argc, char *argv[]) {
     }
 
     char *ptiedostonNimi = argv[1];
-    FILE *pTiedosto = fopen(ptiedostonNimi, "r");
 
+    FILE *pTiedosto = fopen(ptiedostonNimi, "r");
     if (pTiedosto == NULL) {
         printf("Tiedoston avaus epäonnistui.\n");
         return 1;
     }
 
-
     printf("Luetaan tiedot tiedostosta %s.\n", ptiedostonNimi);
 
-    // Luetaan tiedot tiedostosta ja lisätään ne listaan
+    // lue ja lisää
     while (fscanf(pTiedosto, "%s %d", pMerkki, &iValmistusVuosi) == 2) {
         pAlku = lisaaAuto(pAlku, pMerkki, iValmistusVuosi);
-        luettu = 1;
+        iOnLuettu = 1;
     }
 
     fclose(pTiedosto);
 
-    if (luettu) {
+    if (iOnLuettu == 1) {
         printf("Tiedot luettu linkitettyyn listaan.\n");
         tulostaAutot(pAlku);
         vapautaMuisti(pAlku);
