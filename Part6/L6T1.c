@@ -1,0 +1,1 @@
+// L6T1: Linkitetyn listan perusoperaatiot
