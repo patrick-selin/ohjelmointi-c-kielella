@@ -6,12 +6,20 @@
 int main(int iArch, char *argv[]) {
     if (iArch < 4) {
         printf("Et antanut syötteitä.\n");
+        printf("Kiitos ohjelman käytöstä.");
         return 1;
     }
 
     float fNumero1 = atof(argv[1]);
     char cOperand = argv[2][0];
     float fNumero2 = atof(argv[3]);
+
+    if (cOperand != '+' && cOperand != '-' && cOperand != 'x' && cOperand != '/') {
+        printf("Virheellinen syöte.\n");
+        printf("Kiitos ohjelman käytöstä.");
+        return 0;
+    }
+
 
     printf("%.1f %c %.1f = ", fNumero1, cOperand, fNumero2);
 
