@@ -12,6 +12,7 @@ int main() {
     struct Node* pAlku = NULL;
     struct Node* pLoppu = NULL;
     struct Node* pUusi = NULL;
+    struct Node* pTemp = NULL;
     int iValinta;
 
     printf("Anna listan luvut.\n");
@@ -41,15 +42,16 @@ int main() {
     } while (iValinta != 0);
 
     printf("Listassa on seuraavat luvut: ");
-    struct Node* pTemp = pAlku;
+    pTemp = pAlku;
     while (pTemp != NULL) {
         printf("%d ", pTemp->iKokonaisLuku);
         pTemp = pTemp->pSeuraava;
     }
     printf("\n");
 
+    
     while (pAlku != NULL) {
-        struct Node* pTemp = pAlku;
+        pTemp = pAlku;
         pAlku = pAlku->pSeuraava;
 
         free(pTemp);
