@@ -4,40 +4,38 @@
 #include <stdlib.h>
 
 struct Node {
-    int data;
-    struct Node *next;
+    int iLuku;
+    struct Node *pSeuraava;
 };
 
-// Funktio uuden solmun luomiseksi
-struct Node *luoNode(int data) {
-    struct Node *uusiNode = NULL;
+struct Node *luoNode(int iLuku) {
+    struct Node *pUusiNode = NULL;
 
-    (struct Node *)malloc(sizeof(struct Node));
-
-    if (uusiNode == NULL) {
+    if ((pUusiNode = (struct Node *)malloc(sizeof(struct Node))) == NULL) {
         perror("Muistin varaus epäonnistui");
         exit(0);
-    }
+    }   
 
-    uusiNode->data = data;
-    uusiNode->next = NULL;
-    return uusiNode;
+    pUusiNode->iLuku = iLuku;
+    pUusiNode->pSeuraava = NULL;
+    return pUusiNode;
 }
 
-void lisaaListaan(struct Node **pAlku, int data) {
-    struct Node *uusiNode = luoNode(data);
+void lisaaListaan(struct Node **pAlku, int iLuku) {
+    struct Node *pUusiNode = luoNode(iLuku);
 
     if (*pAlku == NULL) {
-        *pAlku = uusiNode;
+        *pAlku = pUusiNode;
         return;
     }
 
-    struct Node *temp = *pAlku;
-    while (temp->next != NULL) {
-        temp = temp->next;
+    struct Node *pTemppi = *pAlku;
+
+    while (pTemppi->pSeuraava != NULL) {
+        pTemppi = pTemppi->pSeuraava;
     }
 
-    temp->next = uusiNode;
+    pTemppi->pSeuraava = pUusiNode;
 }
 
 void tulostaLuvut(struct Node *pAlku) {
@@ -47,30 +45,29 @@ void tulostaLuvut(struct Node *pAlku) {
     }
     printf("Listassa on seuraavat luvut:");
     while (pAlku != NULL) {
-        printf(" %d", pAlku->data);
-        pAlku = pAlku->next;
+        printf(" %d", pAlku->iLuku);
+        pAlku = pAlku->pSeuraava;
     }
     printf("\n");
 }
 
-// Funktio vapauttaa varatun muistin
-void freeList(struct Node *pAlku) {
-    struct Node *temp;
+void vapautaMuisti(struct Node *pAlku) {
+    struct Node *pTemppi;
     while (pAlku != NULL) {
-        temp = pAlku;
-        pAlku = pAlku->next;
-        free(temp);
+        pTemppi = pAlku;
+        pAlku = pAlku->pSeuraava;
+        free(pTemppi);
     }
 }
-// ******* MAIN
+
 int main() {
     struct Node *pAlku = NULL;
-    int iValinta; 
+    int iValinta;
     int iListanPituus;
 
     do {
         printf("1) Tulosta listan alkiot\n");
-        printf("2) Lisää luku listalle\n");
+        printf("2) Muuta listan pituutta\n");
         printf("0) Lopeta\n");
         printf("Anna valintasi: ");
         scanf("%d", &iValinta);
@@ -80,12 +77,21 @@ int main() {
                 tulostaLuvut(pAlku);
                 break;
             case 2:
-                printf("Anna luku: ");
+                printf("Anna listan uusi pituus: ");
                 scanf("%d", &iListanPituus);
-                lisaaListaan(&pAlku, iListanPituus);
+                if (iListanPituus < 0) {
+                    printf("Listan pituus ei voi olla negatiivinen.\n");
+                    break;
+                }
+                vapautaMuisti(pAlku);
+                pAlku = NULL;
+                for (int i = 0; i < iListanPituus; i++) {
+                    int luku = i;
+                    lisaaListaan(&pAlku, luku);
+                }
                 break;
             case 0:
-                freeList(pAlku);
+                vapautaMuisti(pAlku);
                 printf("Muisti vapautettu.\n");
                 break;
             default:
