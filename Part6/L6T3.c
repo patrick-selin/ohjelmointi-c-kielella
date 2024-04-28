@@ -43,9 +43,9 @@ void tulostaLuvut(struct Node *pAlku) {
         printf("Lista on tyhjä.\n");
         return;
     }
-    printf("Listassa on seuraavat luvut:");
+    printf("Listassa on seuraavat luvut: \n");
     while (pAlku != NULL) {
-        printf(" %d", pAlku->iLuku);
+        printf("%d ", pAlku->iLuku);
         pAlku = pAlku->pSeuraava;
     }
     printf("\n");
@@ -92,7 +92,7 @@ int main() {
                 break;
             case 0:
                 vapautaMuisti(pAlku);
-                printf("Muisti vapautettu.\n");
+        
                 break;
             default:
                 printf("Tuntematon valinta, yritä uudestaan.\n");
