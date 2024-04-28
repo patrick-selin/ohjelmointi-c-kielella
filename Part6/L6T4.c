@@ -38,14 +38,11 @@ void lisaaListaan(struct Node **pAlku, int iLuku) {
 }
 
 void printList(struct Node *pAlku) {
-    if (pAlku == NULL) {
-        printf("Lista on tyhjä.\n");
-        return;
-    }
-
-    printf("Listassa olevat luvut:");
+    int iTulostinApuri = 1;
+    
     while (pAlku != NULL) {
-        printf(" %d", pAlku->iLuku);
+        printf("%d ", iTulostinApuri);
+        iTulostinApuri++;
         pAlku = pAlku->pSeuraava;
     }
     printf("\n");
@@ -85,18 +82,27 @@ int main() {
                 for (int i = 1; i <= iListanPituus; i++) {
                     lisaaListaan(&pAlku, i);
                 }
+                printList(pAlku);
                 break;
             case 2:
+                
                 printf("Anna lisättävä luku: ");
                 scanf("%d", &iLuku);
+
+                if (iLuku == 0){
+                    tyhjennaLista(&pAlku);
+                    printf("Kiitos ohjelman käytöstä.");
+                     exit(0);
+                }
+
                 lisaaListaan(&pAlku, iLuku);
+                printList(pAlku);
                 break;
             case 3:
                 printf("TOO.\n");
                 break;
             case 4:
                 tyhjennaLista(&pAlku);
-                printf("Lista on tyhjennetty.\n");
                 break;
             case 5:
                 printf("TODO.\n");
