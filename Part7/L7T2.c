@@ -52,7 +52,7 @@ int main() {
                 tyhjennaLista(&pAlku);
                 break;
             case 5:
-                printf("Anna poistettava alkio: ");
+                printf("Monesko alkio poistetaan: ");
                 scanf("%d", &iPoistettavaAlkio);
                 poistaAlkio(&pAlku, iPoistettavaAlkio);
                 printList(pAlku);

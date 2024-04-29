@@ -23,12 +23,12 @@ void lisaaListanLoppuun(struct Node **pAlku, int iLuku) {
         return;
     }
 
-    struct Node *pTemppi = *pAlku;
-    while (pTemppi->pSeuraava != NULL) {
-        pTemppi = pTemppi->pSeuraava;
+    struct Node *pNykyinen = *pAlku;
+    while (pNykyinen->pSeuraava != NULL) {
+        pNykyinen = pNykyinen->pSeuraava;
     }
 
-    pTemppi->pSeuraava = pUusiNode;
+    pNykyinen->pSeuraava = pUusiNode;
 }
 
 void lisaaListanKeskelle(struct Node **pAlku, int iLuku, int iLisaysErotin) {
@@ -58,27 +58,33 @@ void lisaaListanKeskelle(struct Node **pAlku, int iLuku, int iLisaysErotin) {
     }
 }
 
-void poistaAlkio(struct Node **pAlku, int iPoistettavaAlkio) {
-    struct Node *pEdellinen = NULL;
-    struct Node *pNykyinen = *pAlku;
-
-    while (pNykyinen != NULL && pNykyinen->iLuku != iPoistettavaAlkio) {
-        pEdellinen = pNykyinen;
-        pNykyinen = pNykyinen->pSeuraava;
-    }
-
-    if (pNykyinen == NULL) {
-        printf("Alkiota %d ei löydy listasta.\n", iPoistettavaAlkio);
+void poistaAlkio(struct Node **pAlku, int indeksi) {
+    if (*pAlku == NULL) {
         return;
     }
 
-    if (pEdellinen == NULL) {
-        *pAlku = pNykyinen->pSeuraava;
-    } else {
-        pEdellinen->pSeuraava = pNykyinen->pSeuraava;
+    struct Node *poistettava = NULL;
+    struct Node *edellinen = NULL;
+    struct Node *nykyinen = *pAlku;
+    int iLaskuri = 1;
+
+    while (nykyinen != NULL && iLaskuri < indeksi) {
+        edellinen = nykyinen;
+        nykyinen = nykyinen->pSeuraava;
+        iLaskuri++;
     }
 
-    free(pNykyinen);
+    if (nykyinen == NULL) {
+        return;
+    }
+
+    if (edellinen == NULL) {
+        *pAlku = nykyinen->pSeuraava;
+    } else {
+        edellinen->pSeuraava = nykyinen->pSeuraava;
+    }
+
+    free(nykyinen);
 }
 
 void printList(struct Node *pAlku) {
@@ -90,10 +96,10 @@ void printList(struct Node *pAlku) {
 }
 
 void tyhjennaLista(struct Node **pAlku) {
-    struct Node *pTemppi;
+    struct Node *pNykyinen;
     while (*pAlku != NULL) {
-        pTemppi = *pAlku;
+        pNykyinen = *pAlku;
         *pAlku = (*pAlku)->pSeuraava;
-        free(pTemppi);
+        free(pNykyinen);
     }
 }
