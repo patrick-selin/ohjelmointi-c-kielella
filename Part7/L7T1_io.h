@@ -1,2 +1,13 @@
-int lueAskeleetListaan(int *pLista, int *iRivienMaara);
-void tulostaLista(int *pLista, int iRivienMaara);
+
+struct Node {
+    int iLuku;
+    struct Node *pSeuraava;
+};
+
+void lisaaListanLoppuun(struct Node **pAlku, int iLuku);
+
+void lisaaListanKeskelle(struct Node **pAlku, int iLuku, int iLisaysErotin);
+
+void poistaAlkio(struct Node **pAlku, int iPoistettavaAlkio); 
+
+void printList(struct Node *pAlku);
